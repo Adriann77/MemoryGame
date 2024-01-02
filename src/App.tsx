@@ -1,17 +1,24 @@
+import { Block } from './components/block/Block';
 
+const blocks = ['😄', '😁', '🥳', '🤯', '😄', '😁', '🥳', '🤯'];
 
+const adas = () => {
+  console.log(blocks[Math.random() * blocks.length]);
+}
 
 function App() {
 
-
+	
+  
   return (
     <>
-      <h1>hello world</h1>
-      <div>
-        <p>lorem5</p>
-      </div>
-    </>
-  )
+      <div onClick={adas}>eds</div>
+			<Block
+				src={blocks[Math.random() * blocks.length]}
+			
+			/>
+		</>
+	);
 }
 
-export default App
+export default App;
