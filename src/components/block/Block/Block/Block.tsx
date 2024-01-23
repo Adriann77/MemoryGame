@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import styles from "./Block.module.scss"
 
 
@@ -7,7 +7,7 @@ interface Props {
 
 }
 
-export const Block = ({ src,  }: Props) => {
+export const Block = ({ src }: Props) => {
 	
 	const [isCardFlip, setIsCardFlip] = useState(false)
 

@@ -1,22 +1,12 @@
-import { Block } from './components/block/Block';
-
-const blocks = ['😄', '😁', '🥳', '🤯', '😄', '😁', '🥳', '🤯'];
-
-const adas = () => {
-  console.log(blocks[Math.random() * blocks.length]);
-}
+import { MainLayout } from './components/block/Block/MainLayout/MainLayout';
+import { Panel } from './components/block/Block/Panel/Panel';
 
 function App() {
-
-	
-  
-  return (
-    <>
-      <div onClick={adas}>eds</div>
-			<Block
-				src={blocks[Math.random() * blocks.length]}
-			
-			/>
+	return (
+		<>
+			<MainLayout>
+				<Panel/>
+			</MainLayout>
 		</>
 	);
 }

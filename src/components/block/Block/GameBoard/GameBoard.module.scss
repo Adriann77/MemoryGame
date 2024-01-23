@@ -1,0 +1,14 @@
+.gameBoard {
+	display: flex;
+    align-content: center;
+    
+    gap: 5px;
+	overflow: hidden;
+    width: 440px;
+    height: 440px;
+    margin: auto;
+    background-color: blueviolet;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+ 

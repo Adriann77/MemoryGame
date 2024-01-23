@@ -1,0 +1,48 @@
+.block {
+	width: 80px;
+	height: 80px;
+	border-radius: 20%;
+	background-color: salmon;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.back {
+	animation: flipBack 0.3s forwards;
+
+	
+}
+
+.front {
+	animation: flipFront 0.3s forwards;
+	div {
+		display: none;
+	}
+}
+
+@keyframes flipBack {
+	from {
+		transform: rotateX(0);
+	}
+	to {
+		transform: rotateY(180deg);
+	}
+}
+@keyframes flipFront {
+	from {
+		transform: rotateY(180deg);
+	}
+	to {
+		transform: rotateY(0deg);
+	}
+}
+
+@keyframes flipImg {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
