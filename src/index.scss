@@ -1,5 +1,59 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: #333;
+	font-family: Roboto;
+	color: white;
+
+	text-align: center;
+}
+
+button {
+	transition: all 0.3s;
+	width: 150px;
+	height: 60px;
+	border-radius: 10px;
+	font-size: 22px;
+	margin: 10px;
+	border: none;
+	cursor: pointer;
+	border: 3px solid black;
+
+	transform: scale(1);
+	&:hover {
+		background-color: gold;
+		color: royalblue;
+		transform: scale(0.95);
+		box-shadow: inset 1px -2px 10px 1px black;
+	}
+}
+
+h1 {
+	padding: 40px;
+}
+
+.btns {
+	max-width: 370px;
+	margin: 0 auto;
+	padding: 15px auto;
+}
+
+.App {
+	min-width: 860px;
+	margin: 40px auto;
+}
+
+.card-grid {
+	max-width: 700px;
+	margin: 0 auto;
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 20px;
 }
