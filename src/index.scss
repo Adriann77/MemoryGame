@@ -7,30 +7,77 @@
 }
 
 body {
-	background-color: #333;
+	background-image: linear-gradient(to right, #434343 0%, black 100%);
 	font-family: Roboto;
 	color: white;
-
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
 	text-align: center;
 }
 
-button {
-	transition: all 0.3s;
-	width: 150px;
-	height: 60px;
-	border-radius: 10px;
-	font-size: 22px;
+.glow-on-hover {
+	width: 250px;
+	height: 50px;
 	margin: 10px;
 	border: none;
+	outline: none;
+	font-size: 18px;
+	color: #fff;
+	background: #111;
 	cursor: pointer;
-	border: 3px solid black;
+	position: relative;
+	z-index: 0;
+	border-radius: 10px;
+}
 
-	transform: scale(1);
-	&:hover {
-		background-color: gold;
-		color: royalblue;
-		transform: scale(0.95);
-		box-shadow: inset 1px -2px 10px 1px black;
+.glow-on-hover:before {
+	content: '';
+	background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	background-size: 400%;
+	z-index: -1;
+	filter: blur(5px);
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	animation: glowing 20s linear infinite;
+	opacity: 1;
+	transition: opacity 0.3s ease-in-out;
+	border-radius: 10px;
+}
+
+.glow-on-hover:hover {
+	color: #000;
+}
+
+.glow-on-hover:hover:after {
+	background: transparent;
+}
+
+.glow-on-hover:after {
+	z-index: -1;
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #111;
+	left: 0;
+	top: 0;
+	border-radius: 10px;
+}
+
+@keyframes glowing {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
 	}
 }
 
@@ -50,10 +97,49 @@ h1 {
 }
 
 .card-grid {
+	padding: 20px;
 	max-width: 700px;
-	margin: 0 auto;
-	margin-top: 40px;
+	margin: 40px auto;
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-gap: 20px;
+}
+
+.score {
+	margin-top: 20px;
+	font-size: 28px;
+}
+
+.content {
+	position: relative;
+}
+
+.content h2 {
+	color: #fff;
+	top: -50px;
+	font-size: 50px;
+
+	position: absolute;
+	transform: translate(8%, -90%);
+}
+
+.content h2:nth-child(1) {
+	color: transparent;
+	-webkit-text-stroke: 2px #03a9f4;
+}
+
+.content h2:nth-child(2) {
+	color: #03a9f4;
+	animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate {
+	0%,
+	100% {
+		clip-path: polygon(0% 45%, 16% 44%, 33% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+	}
+
+	50% {
+		clip-path: polygon(0% 60%, 15% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+	}
 }

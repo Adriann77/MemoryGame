@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import SingleCard from './components/block/SingleCard';
+import SingleCard from './components/block/SingleCard/SingleCard';
+import { Popup } from './components/block/Popup/Popup';
 
 const cardImages = [
 	{ src: '/img/golbin.jpeg', matched: false },
@@ -12,19 +13,19 @@ const cardImages = [
 
 function App() {
 	const [cards, setCards] = useState<any[]>([]);
-	const [turns, setTurns] = useState(0);
+	const [turns, setTurns] = useState(5);
 	const [choiceOne, setChoiceOne] = useState(null);
 	const [choiceTwo, setChoiceTwo] = useState(null);
 	const [begin, setBegin] = useState(true);
 	const [disabled, setDisabled] = useState(false);
-	const [diff, setDiff] = useState(null);
-	const [isGameover, setIsGameover] = useState(false);
+	const [isGameover, setIsGameover] = useState(true);
 	const [showWinerPopup, setShowWinerPopup] = useState(false);
 	const [showLosePopup, setShowLosePopup] = useState(false);
 
-	const shuffleCards = () => {
+	const shuffleCards: () => void = () => {
 		setBegin(true);
-		const shuffledCards = [...cardImages, ...cardImages]
+		setIsGameover(false)
+		const shuffledCards: any[] = [...cardImages, ...cardImages]
 			.sort(() => Math.random() - 0.5)
 			.map(card => ({ ...card, id: Math.random() }));
 
@@ -75,27 +76,22 @@ function App() {
 		setIsGameover(false);
 		shuffleCards();
 		const difficulty = e.currentTarget.textContent;
-		setDiff(e.target.textContent);
+
 		switch (difficulty) {
-			//@ts-ignore
 			case 'Easy':
 				setTurns(24);
-
 				break;
-			//@ts-ignore
+
 			case 'Hard':
 				setTurns(12);
-
 				break;
-			//@ts-ignore
+
 			case 'Medium':
 				setTurns(18);
-
 				break;
-			//@ts-ignore
+
 			case 'Impossible':
 				setTurns(6);
-
 				break;
 		}
 	};
@@ -103,20 +99,20 @@ function App() {
 	const handleGameOver = () => {
 		let x = 0;
 		if (turns <= 0) {
-			setShowLosePopup(true)
 			setTimeout(() => {
-				setIsGameover(true);
-				setShowLosePopup(false)
-			},2000)
+				setDisabled(true);
+				setShowWinerPopup(false);
+				setShowLosePopup(true);
+			}, 1500);
 		} else {
 			cards.forEach(item => (item.matched == true ? (x = x + 1) : ''));
 		}
 		if (x == 12) {
-			setShowWinerPopup(true);
 			setTimeout(() => {
-				setShowWinerPopup(false);
-				setIsGameover(true);
-			}, 2000);
+				setDisabled(true);
+				setShowLosePopup(false);
+				setShowWinerPopup(true);
+			}, 1500);
 		}
 	};
 
@@ -124,23 +120,54 @@ function App() {
 		handleGameOver();
 	}, [turns]);
 
+	const backToMenu = () => {
+		setIsGameover(true);
+		setShowLosePopup(false);
+		setShowWinerPopup(false);
+	};
+
 	return (
 		<>
-			<h1>Memory game</h1>
 			<div>
 				{isGameover && (
-					<div className='btns'>
-						<button onClick={setDifficult}>Easy</button>
-						<button onClick={setDifficult}>Medium</button>
-						<button onClick={setDifficult}>Hard</button>
-						<button onClick={setDifficult}>Impossible</button>
+					<div>
+						<div className='content'>
+							<h2>Memory Game</h2>
+							<h2>Memory Game</h2>
+						</div>
+						<div className='btns'>
+							<button
+								className='glow-on-hover'
+								onClick={setDifficult}>
+								Easy
+							</button>
+							<button
+								className='glow-on-hover'
+								onClick={setDifficult}>
+								Medium
+							</button>
+							<button
+								className='glow-on-hover'
+								onClick={setDifficult}>
+								Hard
+							</button>
+							<button
+								className='glow-on-hover'
+								onClick={setDifficult}>
+								Impossible
+							</button>
+						</div>
 					</div>
+				)}
+				{(showLosePopup || showWinerPopup) && (
+					<Popup
+						backToMenu={backToMenu}
+						text={`${showWinerPopup ? 'You won..' : 'You lose..'}`}
+					/>
 				)}
 				{!isGameover && (
 					<div>
-						{showLosePopup && <p>Przegrałeś</p>}
-						{showWinerPopup && <p>WYGRALES</p>}
-						{(!showWinerPopup && !showLosePopup) && <p>Turns left: {turns}</p>}
+						{!showWinerPopup && !showLosePopup && <p className='score'>Turns left: {turns}</p>}
 						<div className='card-grid'>
 							{cards.map(card => (
 								<SingleCard

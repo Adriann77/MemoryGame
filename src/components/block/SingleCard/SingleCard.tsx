@@ -20,7 +20,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled, isGr
 			<div className={flipped ? 'flipped' : ''}>
 				<img
 					style={{
-						border: `${isGreen ? '3px solid green' : ''}`,
+						border: `${isGreen ? '1px solid rgb(155,255,0, .3)' : ''}`,
 					}}
 					className='front'
 					src={card.src}

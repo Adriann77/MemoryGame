@@ -1,0 +1,57 @@
+.card {
+	position: relative;
+	transition: transform 0.3s;
+	cursor: pointer;
+	overflow: hidden;
+	border-radius: 10px;
+
+	&:hover {
+		transform: scale(1.1);
+		animation: flameAnimation 3s ease-in-out infinite;
+	}
+	img {
+		width: 100%;
+		height: 100%;
+		display: block;
+		border-radius: 10px;
+		object-fit: cover;
+		overflow: hidden;
+	}
+
+	.front {
+		transform: rotateY(-90deg);
+		position: absolute;
+		transition: all ease-in 0.2s;
+	}
+
+	.flipped {
+		.front {
+			perspective: 1000px;
+			transform: rotateY(0);
+			transition-delay: 0.2s;
+		}
+		.back {
+			perspective: -1000px;
+			transform: rotateY(-90deg);
+			transition-delay: 0;
+		}
+	}
+
+	.back {
+		background-color: none;
+		transition: all ease-in 0.2s;
+		transition-delay: 0.2s;
+	}
+}
+
+@keyframes flameAnimation {
+	0% {
+		box-shadow: 0 0 10px rgba(169, 16, 203, 0.8);
+	}
+	50% {
+		box-shadow: 0 0 25px rgba(255, 94, 0, 0.8);
+	}
+	100% {
+		box-shadow: 0 0 1px rgba(9, 206, 32, 0.8);
+	}
+}
