@@ -103,7 +103,7 @@ function App() {
 				setDisabled(true);
 				setShowWinerPopup(false);
 				setShowLosePopup(true);
-			}, 1500);
+			}, 300);
 		} else {
 			cards.forEach(item => (item.matched == true ? (x = x + 1) : ''));
 		}
@@ -112,7 +112,7 @@ function App() {
 				setDisabled(true);
 				setShowLosePopup(false);
 				setShowWinerPopup(true);
-			}, 1500);
+			}, 300);
 		}
 	};
 
@@ -162,7 +162,9 @@ function App() {
 				{(showLosePopup || showWinerPopup) && (
 					<Popup
 						backToMenu={backToMenu}
-						text={`${showWinerPopup ? 'You won..' : 'You lose..'}`}
+						src={`${showWinerPopup ? './img/youwin.png' : './img/gameover.jpeg'}`}
+						text={`${showWinerPopup ? 'you win' : 'game over'}`}
+
 					/>
 				)}
 				{!isGameover && (
