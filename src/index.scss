@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Press+Start+2P&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -7,8 +8,11 @@
 }
 
 body {
-	background-image: linear-gradient(to right, #434343 0%, black 100%);
-	font-family: Roboto;
+	// background-image: linear-gradient(to right, #434343 0%, black 100%);
+	background-image: url(https://media.discordapp.net/attachments/484436140917784608/1201633341896675358/1.png?ex=65ca8741&is=65b81241&hm=8340aef4c904ab4fd2944ff74ac09f03c32c0f9e7803168c4a3df0b34818f9b7&=&format=webp&quality=lossless&width=1704&height=960);
+	background-size: cover;
+	background-position: center;
+	font-family: 'Press Start 2P', system-ui;
 	color: white;
 	display: flex;
 	align-items: center;
@@ -23,9 +27,10 @@ body {
 	margin: 10px;
 	border: none;
 	outline: none;
-	font-size: 18px;
+	font-size: 21px;
 	color: #fff;
 	background: #111;
+	font-family: 'Press Start 2P', system-ui;
 	cursor: pointer;
 	position: relative;
 	z-index: 0;
@@ -51,6 +56,7 @@ body {
 
 .glow-on-hover:hover {
 	color: #000;
+	border: 2px solid white;
 }
 
 .glow-on-hover:hover:after {
@@ -112,24 +118,24 @@ h1 {
 
 .content {
 	position: relative;
+	width: 600px;
 }
 
 .content h2 {
 	color: #fff;
-	top: -50px;
 	font-size: 50px;
-
+	top: -90px;
+	left: 30px;
 	position: absolute;
-	transform: translate(8%, -90%);
 }
 
 .content h2:nth-child(1) {
 	color: transparent;
-	-webkit-text-stroke: 2px #08ed00 ;
+	-webkit-text-stroke: 2px #08ed00;
 }
 
 .content h2:nth-child(2) {
-	color: #0a495f;
+	color: #f605c6;
 	animation: animate 4s ease-in-out infinite;
 }
 
@@ -144,12 +150,19 @@ h1 {
 	}
 }
 
-@media (max-width: 768px){
-	.content h2{
-		font-size: 40px;
-			transform: translate(23%, -90%);
+@media (max-width: 768px) {
+	.content {
+	position: relative;
+	width: 400px;
+}
+	.content h2 {
+		font-size: 28px;
+		left: 45px;
+		top: -50px;
 	}
 
+	.glow-on-hover{
+		width: 180px;
+		font-size: 14px;
+	}
 }
-
-

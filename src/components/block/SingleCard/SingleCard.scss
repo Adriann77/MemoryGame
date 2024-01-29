@@ -29,6 +29,8 @@
 			perspective: 1000px;
 			transform: rotateY(0);
 			transition-delay: 0.2s;
+			background-color: rgba(0, 0, 0, 0.4);
+
 		}
 		.back {
 			perspective: -1000px;
