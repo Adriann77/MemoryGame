@@ -5,6 +5,7 @@
 	overflow: hidden;
 	border-radius: 10px;
 
+
 	&:hover {
 		transform: scale(1.1);
 		animation: flameAnimation 3s ease-in-out infinite;
@@ -25,12 +26,17 @@
 	}
 
 	.flipped {
+		transition: all 1s;
 		.front {
 			perspective: 1000px;
 			transform: rotateY(0);
-			transition-delay: 0.2s;
-			background-color: rgba(0, 0, 0, 0.4);
-
+		
+			background-color: rgba(0, 0, 0, 0.6);
+			transition: border 0.8s 0.2s;
+			border: 2px solid transparent;
+		}
+		.matched {
+			border: 2px solid rgb(30, 255, 0, 0.9);
 		}
 		.back {
 			perspective: -1000px;
@@ -56,4 +62,7 @@
 	100% {
 		box-shadow: 0 0 1px rgba(9, 206, 32, 0.8);
 	}
+}
+
+@media (max-width: 768px) {
 }

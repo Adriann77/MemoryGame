@@ -19,17 +19,15 @@ export default function SingleCard({ card, handleChoice, flipped, disabled, isGr
 		<div className='card'>
 			<div className={flipped ? 'flipped' : ''}>
 				<img
-					style={{
-						border: `${isGreen ? '1px solid rgb(155,255,0, .3)' : ''}`,
-					}}
-					className='front'
+					
+					className={`front ${isGreen ? 'matched' : ''}`}
 					src={card.src}
 					alt='card front'
 				/>
 				<img
 					onClick={handleClick}
 					className='back'
-					src='./img/cover.webp'
+					src='./img/arcadeCover.jpeg'
 					alt='card back'
 				/>
 			</div>

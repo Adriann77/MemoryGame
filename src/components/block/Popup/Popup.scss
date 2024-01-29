@@ -1,8 +1,67 @@
 .lose-popup {
 	position: absolute;
 	width: 100%;
-	height: 80%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	flex-direction: column;
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(8px);
+	background-color: rgb(0, 0, 0, 0.4);
 	z-index: 10;
+	animation: blur 1s ease-in forwards;
+
+	img {
+		animation: showSkull 2s ease-in forwards;
+		width: 280px;
+		height: 280px;
+		opacity: 0;
+	}
+
+	p {
+		opacity: 0;
+		margin-top: -40px;
+		margin-bottom: 70px;
+		font-size: 48px;
+		animation: show 2s 2s ease-in forwards;
+	}
+
+	button {
+		font-size: 30px;
+		width: 420px;
+		height: 110px;
+		opacity: 0;
+		animation: show 2s 3s ease-in forwards;
+	}
+}
+
+@keyframes blur {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes showSkull {
+	from {
+		opacity: 0;
+		transform: scale(3.5);
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;
+	}
 }
