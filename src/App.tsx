@@ -3,12 +3,12 @@ import SingleCard from './components/block/SingleCard/SingleCard';
 import { Popup } from './components/block/Popup/Popup';
 
 const cardImages = [
-	{ src: '/img/golbin.jpeg', matched: false },
-	{ src: '/img/dwarf.jpeg', matched: false },
-	{ src: '/img/iorweth.webp', matched: false },
-	{ src: '/img/ork.jpeg', matched: false },
-	{ src: '/img/smigol.jpeg', matched: false },
-	{ src: '/img/wicher.jpg', matched: false },
+	{ src: '/img/arcadeEzreal.png', matched: false },
+	{ src: '/img/ahri.png', matched: false },
+	{ src: '/img/MissF.png', matched: false },
+	{ src: '/img/Kaisa.png', matched: false },
+	{ src: '/img/sona.png', matched: false },
+	{ src: '/img/riven.png', matched: false },
 ];
 
 function App() {
