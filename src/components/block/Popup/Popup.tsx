@@ -12,7 +12,9 @@ export const Popup = ({backToMenu, src, text}: Props) => {
 		<>
 			<div className='lose-popup'>
 				<img src={src} alt="" />
-				<p>{text}</p>
+				<p
+				className={`${text === 'game over' ? 'red' : 'yellow'}`}
+				>{text}</p>
 				<button
 					className='glow-on-hover'
 					onClick={backToMenu}>

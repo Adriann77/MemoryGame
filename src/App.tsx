@@ -98,22 +98,22 @@ function App() {
 
 	const handleGameOver = () => {
 		let x = 0;
-		if (turns <= 0) {
-			setTimeout(() => {
-				setDisabled(true);
-				setShowWinerPopup(false);
-				setShowLosePopup(true);
-			}, 300);
-		} else {
-			cards.forEach(item => (item.matched == true ? (x = x + 1) : ''));
-		}
+		cards.forEach(item => (item.matched == true ? (x = x + 1) : ''));
 		if (x == 12) {
 			setTimeout(() => {
 				setDisabled(true);
 				setShowLosePopup(false);
 				setShowWinerPopup(true);
 			}, 300);
+		} else if (turns <= 0) {
+			setTimeout(() => {
+				setDisabled(true);
+				setShowWinerPopup(false);
+				setShowLosePopup(true);
+			}, 300);
+			
 		}
+		
 	};
 
 	useEffect(() => {
