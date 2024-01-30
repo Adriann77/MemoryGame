@@ -19,18 +19,19 @@
 	}
 
 	.front {
-		transform: rotateY(0deg);
-		backface-visibility: hidden;
+		transform: rotateY(90deg);
+
 		position: absolute;
-		transition: all ease-in 0.2s;
+		transition: all .2s .2s ease-in;
+
 	}
 
 	.flipped {
-		transition: all 1s;
+
 		.front {
 			transform: rotateY(0deg);
 			background-color: rgba(0, 0, 0, 0.6);
-			transition: border 0.8s 0.2s;
+			transition: all 0.8s 0.2s;
 			border: 2px solid transparent;
 		}
 		.matched {
@@ -38,13 +39,13 @@
 		}
 		.back {
 			transform: rotateY(90deg);
-			transition-delay: 0.3s;
+			transition-delay: 0.2s;
 		}
 	}
 }
 
 .back {
-	transform: rotateY(180deg);
+	transform: rotateY(0deg);
 	transition: all ease-in 0.2s;
 	transition-delay: 0.2s;
 }
